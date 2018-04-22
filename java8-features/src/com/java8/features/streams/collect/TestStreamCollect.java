@@ -48,7 +48,5 @@ public class TestStreamCollect {
 		 */
 		System.out.println("\n....Collector::");
 		Person.persons().stream().map(p -> p.getName()).collect(Collectors.toList()).forEach(System.out::println);
-
 	}
-
 }
