@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -26,6 +27,7 @@ public class TestCollectors {
 		testAvgingXXX();
 		testCounting();
 		testJoining();
+		testMapping();
 		testToMap();
 		testGroupingBy();
 		testPartitioning();
@@ -94,6 +96,26 @@ public class TestCollectors {
 		String namesWithPrePostFix = Person.persons().stream().map(Person::getName)
 				.collect(Collectors.joining(",", "Mr.", "-Jr"));
 		System.out.println("Person Names without Pre/Postfix: " + namesWithPrePostFix);
+	}
+
+	public static void testMapping() {
+		/*-
+		 * Collectors.mapping(Function<? super T,? extends U> mapper, 
+		 * 						Collector<? super U,A,R> downstream)
+		 */
+		List<String> personNames = Person.persons().stream()
+				.collect(Collectors.mapping(Person::getName, Collectors.toList()));
+		System.out.println("Person Names: " + personNames);
+
+		String namesWithDelimiter = Person.persons().stream()
+				.collect(Collectors.mapping(Person::getName, Collectors.joining(", ", "(", ")")));
+		System.out.println("Names with delimiter: " + namesWithDelimiter);
+
+		Optional<Double> maxIncome = Person.persons().stream()
+				.collect(Collectors.mapping(Person::getIncome, Collectors.maxBy(Double::compareTo)));
+		if (maxIncome.isPresent()) {
+			System.out.println("Max Income: " + maxIncome);
+		}
 	}
 
 	public static void testToMap() {
