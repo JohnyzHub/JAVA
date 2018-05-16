@@ -28,7 +28,7 @@ public class ExecutableUtil {
 			String temp = modifier + " " + paramType + " " + paramName;
 			parameters.add(temp.trim());
 		}
-		String params =fromArrayToString(parameters, ","); 
+		String params = fromArrayToString(parameters, ",");
 		return "(" + params + ") ";
 	}
 
