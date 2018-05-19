@@ -1,5 +1,6 @@
 package com.corejava.reflection.test.util;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
@@ -13,6 +14,26 @@ import java.util.List;
  *
  */
 public class ExecutableUtil {
+	
+	public static String getAnnotations(Executable exec) {
+		Annotation[] annotations = exec.getAnnotations();
+		StringBuilder annotationBuilder = new StringBuilder();
+		for(Annotation annotation: annotations) {
+			annotationBuilder.append(annotation + " ");
+		}
+		return annotationBuilder.toString();
+	}
+
+	public static String getModifiers(Executable exec) {
+		int mod = exec.getModifiers();
+
+		if (exec instanceof Method) {
+			mod = mod & Modifier.methodModifiers();
+		} else if (exec instanceof Constructor) {
+			mod = mod & Modifier.constructorModifiers();
+		}
+		return Modifier.toString(mod);
+	}
 
 	public static String getParameters(Executable exec) {
 		Parameter[] execParameters = exec.getParameters();
@@ -30,17 +51,6 @@ public class ExecutableUtil {
 		}
 		String params = fromArrayToString(parameters, ",");
 		return "(" + params + ") ";
-	}
-
-	public static String getModifiers(Executable exec) {
-		int mod = exec.getModifiers();
-
-		if (exec instanceof Method) {
-			mod = mod & Modifier.methodModifiers();
-		} else if (exec instanceof Constructor) {
-			mod = mod & Modifier.constructorModifiers();
-		}
-		return Modifier.toString(mod);
 	}
 
 	public static String getThrowsClause(Executable exec) {

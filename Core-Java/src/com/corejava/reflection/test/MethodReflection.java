@@ -41,12 +41,13 @@ public class MethodReflection {
 		List<String> methodList = new ArrayList<String>(methods.length);
 
 		for (Method method : methods) {
+			String annotations = ExecutableUtil.getAnnotations(method);
 			String modifiers = ExecutableUtil.getModifiers(method);
 			String returnType = method.getReturnType().getSimpleName();
 			String name = method.getName();
 			String paramList = ExecutableUtil.getParameters(method);
 			String exceptions = ExecutableUtil.getThrowsClause(method);
-			methodList.add(modifiers + " " + returnType + " " + name + paramList + exceptions);
+			methodList.add(annotations + " " + modifiers + " " + returnType + " " + name + paramList + exceptions);
 
 		}
 		return methodList;
