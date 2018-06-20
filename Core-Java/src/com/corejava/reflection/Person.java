@@ -5,6 +5,10 @@ package com.corejava.reflection;
  *
  */
 public abstract class Person implements Human {
+	
+	static {
+		System.out.println("Person got created");
+	}
 
 	private String socialNumber = "12345";
 	protected Gender gender;

@@ -19,7 +19,7 @@ public class MethodReflection {
 
 		reflection.getMethodsList(c);
 
-		//reflection.getDeclaredMethodsList(c);
+		// reflection.getDeclaredMethodsList(c);
 	}
 
 	public void getDeclaredMethodsList(Class<Employee> c) {

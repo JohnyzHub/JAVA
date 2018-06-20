@@ -8,7 +8,7 @@ import com.corejava.reflection.Employee;
  */
 public class ClassInitializationTest {
 
-	private static final String className = "com.corejava.reflection.initialization.Person";
+	private static final String className = "com.corejava.reflection.Employee";
 
 	public static void main(String[] args) {
 		/**
@@ -55,7 +55,7 @@ public class ClassInitializationTest {
 		try {
 			Class.forName(className, true, Employee.class.getClassLoader());
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 }

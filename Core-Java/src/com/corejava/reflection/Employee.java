@@ -16,7 +16,7 @@ public class Employee<T, U> extends Person implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
 
 	static {
-		System.out.println("Initializing Person class...");
+		System.out.println("Initializing Employee class...");
 	}
 
 	public enum Department {
@@ -70,6 +70,7 @@ public class Employee<T, U> extends Person implements Serializable, Cloneable {
 		this.languagesKnown = languagesKnown;
 	}
 
+	@Deprecated
 	public boolean addLangualge(String language) throws Exception {
 		this.languagesKnown.add(language);
 		return true;
