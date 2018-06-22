@@ -4,7 +4,7 @@ package com.corejava.design.patterns.state;
  * @author johnybasha
  *
  */
-public class CookState implements RoboticState {
+public class CookState extends RoboticState {
 
 	private Robot robot;
 
@@ -31,7 +31,6 @@ public class CookState implements RoboticState {
 	@Override
 	public void walk() {
 		System.out.println("Can't walk while cooking...");
-
 
 	}
 

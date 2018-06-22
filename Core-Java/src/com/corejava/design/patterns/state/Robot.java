@@ -7,7 +7,7 @@ package com.corejava.design.patterns.state;
  * @author johnybasha
  *
  */
-public class Robot implements RoboticState {
+public class Robot {
 
 	private RoboticState state;
 
@@ -16,49 +16,45 @@ public class Robot implements RoboticState {
 		this.state.on();
 	}
 
-	public RoboticState getState() {
+	protected RoboticState getState() {
 		return state;
 	}
 
-	public void setState(RoboticState state) {
+	protected void setState(RoboticState state) {
 		this.state = state;
 	}
 
-	public void setOnState() {
+	protected void setOnState() {
 		this.state = new OnState(this);
 	}
 
-	public void setWalkState() {
+	protected void setWalkState() {
 		this.state = new WalkState(this);
 	}
 
-	public void setCookState() {
+	protected void setCookState() {
 		this.state = new CookState(this);
 	}
 
-	public void setOffState() {
+	protected void setOffState() {
 		this.state = new OffState(this);
 	}
 
-	@Override
 	public void on() {
 		this.state.on();
 
 	}
 
-	@Override
 	public void walk() {
 		this.state.walk();
 
 	}
 
-	@Override
 	public void cook() {
 		this.state.cook();
 
 	}
 
-	@Override
 	public void off() {
 		this.state.off();
 

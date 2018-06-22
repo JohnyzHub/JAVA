@@ -4,11 +4,14 @@ package com.corejava.design.patterns.state;
  * @author johnybasha
  *
  */
-public interface RoboticState {
+public abstract class RoboticState {
 
-	void on();
-	void walk();
-	void cook();
-	void off();
-	
+	protected abstract void on();
+
+	protected abstract void walk();
+
+	protected abstract void cook();
+
+	protected abstract void off();
+
 }

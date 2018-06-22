@@ -4,7 +4,7 @@ package com.corejava.design.patterns.state;
  * @author johnybasha
  *
  */
-public class OnState implements RoboticState {
+public class OnState extends RoboticState {
 
 	private Robot robot;
 

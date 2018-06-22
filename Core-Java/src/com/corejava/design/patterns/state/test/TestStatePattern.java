@@ -1,4 +1,6 @@
-package com.corejava.design.patterns.state;
+package com.corejava.design.patterns.state.test;
+
+import com.corejava.design.patterns.state.Robot;
 
 /**
  * @author johnybasha
@@ -18,7 +20,6 @@ public class TestStatePattern {
 		robot.cook();
 		robot.walk();
 		robot.off();
-
 	}
 
 }
